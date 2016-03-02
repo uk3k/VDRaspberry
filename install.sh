@@ -82,12 +82,24 @@ vdr
 video
 vdrgroups
 
-#make scripts executable
-chmod +x /usr/local/bin/runvdr
-
 #create access rules for vdr
 echo "192.168.1.0/24	#any host on the local net" > /var/lib/vdr/allowed_hosts.conf
 ln -s /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/svdrphosts.conf
 ln -s /var/lib/vdr/allowed_hosts.conf > /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf
 ln -s /var/lib/vdr/allowed_hosts.conf > /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf
 ln -s /var/lib/vdr /etc/vdr
+
+#init-scripts
+wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/vdr
+wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/oscam/oscam
+
+chmod +x /etc/init.d/oscam
+chmod +x /etc/init.d/vdr
+chmod +x /usr/local/bin/runvdr
+update-rc.d oscam defaults
+udate-rc.d vdr defaults
+
+###create oscam logging dir
+mkdir -p /var/log/oscam
+chmod -R 775 /var/log/oscam/
+chown -R nobody /var/log/oscam
