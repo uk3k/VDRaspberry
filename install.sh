@@ -10,6 +10,10 @@
 #note: oscam and vdr are preconfigured for unitymedia (NRW) but due 
 #actual law restrictions you have to get rsa-key and box-key for oscam.server on your own
 
+#install sundtek dvb-c driver
+wget http://sundtek.de/media/sundtek-netinst-driver.deb
+dpkg -i sundtek-netinst-driver.deb
+
 echo "deb-src http://archive.raspbian.org/raspbian/ jessie main contrib non-free rpi" >> /etc/apt/sources.list
 apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 apt-get install -y python-software-properties software-properties-common git git-core fontconfig 
