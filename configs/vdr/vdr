@@ -1,0 +1,38 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          VDR
+# Required-Start:    $network
+# Required-Stop:     $network
+# Default-Start:     3 5
+# Default-Stop:      0 1 2 6
+# Description:       Start, Stop or Restart VDR
+### END INIT INFO
+ 
+# Script by www.loggn.de
+#thx :-)
+ 
+case "$1" in
+ start)
+ echo "Starting VDR"
+ /usr/local/bin/runvdr
+ ;;
+ stop)
+ echo "Shutting down VDR"
+ /usr/local/bin/runvdr kill #killall -q vdr
+ ;;
+ restart)
+ echo "Restart VDR"
+ $0 stop
+ sleep 5
+ $0 start
+ ;;
+ status)
+ echo "Status VDR"
+ ps -A | grep -q -w vdr && echo "...is running" || echo "...is not running"
+ ;;
+ *)
+ echo "Usage: $0 {start|stop|restart|status}"
+ exit 1
+ ;;
+esac
+exit 0
