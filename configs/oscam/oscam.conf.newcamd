@@ -1,0 +1,38 @@
+[global]
+usrfile             = /var/log/oscam/oscamuser.log
+logfile             = /var/log/oscam/oscam.log
+cwlogdir            = /var/log/oscam/cw
+nice                = -1
+
+[monitor]
+port                = 988
+aulow               = 120
+hideclient_to       = 15
+monlevel            = 1
+
+[dvbapi]
+enabled				      = 0
+boxtype				      = pc
+user 				        = dvbapi
+au				          = 1
+pmt_mode			      = 0
+request_mode 	      = 1
+
+[newcamd]
+port                = 33330@1838:001103
+key                 = 0102030405060708091011121314
+keepalive           = 1
+
+[webif]
+httpport            = 9999
+httpuser            = vdr
+httppwd             = vdr
+httpallowed         = 127.0.0.1,192.168.0.0-192.168.255.255
+
+[anticasc]
+enabled             = 0
+numusers            = 1
+samples             = 5
+penalty             = 1
+aclogfile           = /var/log/oscam/aclog.log
+denysamples         = 4
