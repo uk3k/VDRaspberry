@@ -77,19 +77,17 @@ vdrgroups
 
   cd $install/download
   #download main vdr configs
-  wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/vdr
+  wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/vdr.conf
   wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/setup.conf
   wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/channels.conf
   wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/runvdr
-  mv vdr /etc/init.d/vdr
+  mv vdr.conf /etc/init/vdr.conf
   mv setup.conf /var/lib/vdr/setup.conf
   mv channels.conf /var/lib/vdr/channels.conf
   mv runvdr /usr/local/bin/runvdr
 
   #install init-script
-  chmod +x /etc/init.d/vdr
   chmod +x /usr/local/bin/runvdr
-  udate-rc.d vdr defaults
 
   #create and link plugin configs
   echo "newcamd:127.0.0.1:33330:1/1838/FFFF:softcam:dummy:0102030405060708091011121314" > /var/lib/vdr/plugins/sc/cardclient.conf
