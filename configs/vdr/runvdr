@@ -5,7 +5,7 @@ VDRPRG="/usr/local/bin/vdr"
 #options
 VDROPTIONS="-w 60 --video=/var/vdr/record --epgfile=/var/vdr/epg.data export VDR_CHARSET_OVERRIDE="ISO-8859-15""
 #plugins
-VDRPLUGINS="-P vnsiserver -P dvbapi -P streamdev-server -P svdrpservice"
+VDRPLUGINS="-P vnsiserver -P dvbapi -P streamdev-server -P svdrpservice -P sc"
 #parameter comand
 VDRCMD="\$VDRPRG \$VDROPTIONS \$VDRPLUGINS \$*"
       
