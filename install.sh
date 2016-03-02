@@ -26,7 +26,7 @@ if [ "$tv_vdr" = "true" ]
   then
   useradd vdr
   usermod -a -G video vdr
-  mkdir -p $install/src /var/vdr /var/vdr/record
+  mkdir -p $install/src $install/download /var/vdr /var/vdr/record
   mkdir -p /var/lib/vdr/plugins/vnsiserver /var/lib/vdr/plugins/streamdev-server /var/lib/vdr/plugins/sc /var/lib/vdr/plugins/svdrpservice
   chown -R :video /var/vdr /var/lib/vdr/
   chmod -R g+w /var/vdr /var/lib/vdr/
@@ -73,32 +73,55 @@ if [ "$tv_oscam" = "true" ]
                 make -j4 && make install
 fi
 
-#write configs and scripts
-
-#vdr
-
 cat > /var/lib/vdr/vdr.groups <<vdrgroups
 vdr
 video
 vdrgroups
 
-#create access rules for vdr
+cd $install/download
+#download main vdr configs
+wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/vdr
+wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/setup.conf
+wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/channels.conf
+wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/runvdr
+mv vdr /etc/init.d/vdr
+mv setup.conf /var/lib/vdr/setup.conf
+mv channels.conf /var/lib/vdr/channels.conf
+mv runvdr /usr/local/bin/runvdr
+
+#install init-script
+chmod +x /etc/init.d/vdr
+chmod +x /usr/local/bin/runvdr
+udate-rc.d vdr defaults
+
+#create and link plugin configs
+echo "newcamd:127.0.0.1:33330:1/1838/FFFF:softcam:dummy:0102030405060708091011121314" > /var/lib/vdr/plugins/sc/cardclient.conf
+touch /var/lib/vdr/plugins/sc/cardslot.conf
+touch /var/lib/vdr/plugins/sc/override.conf
+touch /var/lib/vdr/plugins/sc/smartcard.conf
+touch /var/lib/vdr/plugins/sc/SoftCam.Key
 echo "192.168.1.0/24	#any host on the local net" > /var/lib/vdr/allowed_hosts.conf
-echo "newcamd:127.0.0.1:33330:1/1838/FFFF:softcam:dummy:0102030405060708091011121314" > /var/lib/vdr/cardclient.conf
 ln -s /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/svdrphosts.conf
 ln -s /var/lib/vdr/allowed_hosts.conf > /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf
 ln -s /var/lib/vdr/allowed_hosts.conf > /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf
 ln -s /var/lib/vdr /etc/vdr
 
-#init-scripts
-wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/vdr
+#download main oscam configs
 wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/oscam/oscam
+wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/oscam/oscam.conf
+wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/oscam/oscam.server
+wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/oscam/oscam.user
+wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/oscam/oscam.dvbapi
+mv oscam /etc/init.d/oscam
+mv oscam.conf /usr/local/etc/oscam.conf
+mv oscam.server /usr/local/etc/oscam.server
+mv oscam.user /usr/local/etc/oscam.user
+mv oscam.dvbapi /usr/local/etc/oscam.dvbapi
 
+#install init-script
 chmod +x /etc/init.d/oscam
-chmod +x /etc/init.d/vdr
-chmod +x /usr/local/bin/runvdr
 update-rc.d oscam defaults
-udate-rc.d vdr defaults
+
 
 ###create oscam logging dir
 mkdir -p /var/log/oscam
