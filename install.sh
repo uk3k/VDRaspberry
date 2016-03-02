@@ -84,6 +84,7 @@ vdrgroups
 
 #create access rules for vdr
 echo "192.168.1.0/24	#any host on the local net" > /var/lib/vdr/allowed_hosts.conf
+echo "newcamd:127.0.0.1:33330:1/1838/FFFF:softcam:dummy:0102030405060708091011121314" > /var/lib/vdr/cardclient.conf
 ln -s /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/svdrphosts.conf
 ln -s /var/lib/vdr/allowed_hosts.conf > /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf
 ln -s /var/lib/vdr/allowed_hosts.conf > /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf
