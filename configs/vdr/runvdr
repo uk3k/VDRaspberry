@@ -33,8 +33,7 @@ fi
 while (true) do
   eval "\$VDRCMD"
   if test \$? -eq 0 -o \$? -eq 2; then exit; fi
-  echo "`date` reloading DVB driver"
-  \$KILL \$VDRPRG
+  echo "`date` reloading DVB driver" $KILL $VDRPRG
   sleep 10
   UnloadDriver
   LoadDriver
