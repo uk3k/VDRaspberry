@@ -1,0 +1,16 @@
+[reader]
+label			          = UnityMedia
+protocol		        = smartreader
+device 			        = 001:004
+caid	   		        = 1838 
+rsakey 	            = 
+boxkey              = 
+detect              = cd
+autospeed 	        = 1
+cardmhz             = 368
+group               = 1
+emmcache		        = 1,3,2
+saveemm-u 	        = 1
+blockemm-unknown    = 1
+blockemm-s          = 0
+blockemm-g          = 0
