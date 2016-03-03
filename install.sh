@@ -2,7 +2,7 @@
 
 ##run this script as root or die! don't use sudo!!!
 #quick n'dirty....this only works for armv7 (Raspberry Pi 2)
-
+#start from scratch using fresh raspbian jessie image and resize root partition first!!!
 #important: before compiling edit FFDecsa-Section in the Makefiles for SC an DVBAPI:
 #from "PARALLEL   ?= ????" to "PARALLEL   ?= PARALLEL_128_4INT"
 #and remove all -mmmx -msse -msse2 -msse3 flags ;-) in the same section
