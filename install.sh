@@ -16,7 +16,7 @@ dpkg -i sundtek-netinst-driver.deb
 
 #replace systemd with upstart
 sudo apt-get install -y upstart systemd-shim systemd-sysv-
-apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
+apt-get update && apt-get upgrade -y
 
 echo "deb-src http://archive.raspbian.org/raspbian/ jessie main contrib non-free rpi" >> /etc/apt/sources.list
 apt-get update
