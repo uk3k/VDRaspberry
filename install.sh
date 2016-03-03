@@ -10,17 +10,18 @@
 #note: oscam and vdr are preconfigured for unitymedia (NRW) but due 
 #actual law restrictions you have to get rsa-key and box-key for oscam.server on your own
 
-#install sundtek dvb-c driver
-wget http://sundtek.de/media/sundtek-netinst-driver.deb
-dpkg -i sundtek-netinst-driver.deb
-
 #replace systemd with upstart
 sudo apt-get install -y upstart systemd-shim systemd-sysv-
 apt-get update && apt-get upgrade -y
 
+#install sundtek dvb-c driver
+wget http://sundtek.de/media/sundtek-netinst-driver.deb
+dpkg -i sundtek-netinst-driver.deb
+
+#install packages
 echo "deb-src http://archive.raspbian.org/raspbian/ jessie main contrib non-free rpi" >> /etc/apt/sources.list
 apt-get update
-apt-get install -y python-software-properties software-properties-common git git-core fontconfig 
+apt-get install -y python-software-properties software-properties-common git git-core fontconfig htop
 apt-get install -y libjpeg-dev lirc udisks upower xorg alsa-utils mesa-utils librtmp1 libmad0 lm-sensors 
 apt-get install -y libmpeg2-4 avahi-daemon libnfs4 consolekit pm-utils samba build-essential 
 apt-get install -y libcap-dev gettext libncurses-dev pkg-config w-scan cmake subversion openssl libssl-dev 
@@ -81,20 +82,18 @@ vdrgroups
 
   cd $install/download
   #download main vdr configs
-  wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/vdr
+  wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/vdr.conf
   wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/setup.conf
   wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/channels.conf
   wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/runvdr
-  mv vdr /etc/init.d/vdr
+  mv vdr.conf /etc/init/vdr.conf
   mv setup.conf /var/lib/vdr/setup.conf
   mv channels.conf /var/lib/vdr/channels.conf
   mv runvdr /usr/local/bin/runvdr
 
   #install init-script
-  chmod +x /etc/init.d/vdr
   chmod +x /usr/local/bin/runvdr
-  update-rc.d vdr defaults
-
+  
   #create and link plugin configs
   echo "newcamd:127.0.0.1:33330:1/1838/FFFF:softcam:dummy:0102030405060708091011121314" > /var/lib/vdr/plugins/sc/cardclient.conf
   touch /var/lib/vdr/plugins/sc/cardslot.conf
