@@ -69,8 +69,18 @@ cd /$install/src/vdr/PLUGINS/src
   ln -s vdr-plugin-dvbapi dvbapi
   ln -s vdr-plugin-sc sc
   ln -s svdrpservice-1.0.0 svdrpservice
-  nano vdr-plugin-sc/Makefile
-  nano vdr-plugin-dvbapi/Makefile
+  sed -i 's/PARALLEL_128_SSE2/PARALLEL_128_4INT/' vdr-plugin-sc/Makefile
+  sed -i 's/-mmmx//' vdr-plugin-sc/Makefile
+  sed -i 's/-msse//' vdr-plugin-sc/Makefile
+  sed -i 's/-msse2//' vdr-plugin-sc/Makefile
+  sed -i 's/-msse3//' vdr-plugin-sc/Makefile
+  sed -i 's/PARALLEL_128_SSE2/PARALLEL_128_4INT/' vdr-plugin-dvbapi/Makefile
+  sed -i 's/-mmmx//' vdr-plugin-dvbapi/Makefile
+  sed -i 's/-msse//' vdr-plugin-dvbapi/Makefile
+  sed -i 's/-msse2//' vdr-plugin-dvbapi/Makefile
+  sed -i 's/-msse3//' vdr-plugin-dvbapi/Makefile
+  #nano vdr-plugin-dvbapi/Makefile
+  #nano vdr-plugin-sc/Makefile
   cd ../../
   make -j4 && make install
 
