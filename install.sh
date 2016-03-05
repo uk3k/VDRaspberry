@@ -14,10 +14,6 @@
 sudo apt-get install -y upstart systemd-shim systemd-sysv-
 apt-get update && apt-get upgrade -y
 
-#install sundtek dvb-c driver
-wget http://sundtek.de/media/sundtek-netinst-driver.deb
-dpkg -i sundtek-netinst-driver.deb
-
 #install packages
 echo "deb-src http://archive.raspbian.org/raspbian/ jessie main contrib non-free rpi" >> /etc/apt/sources.list
 apt-get update
@@ -111,6 +107,8 @@ vdrgroups
   touch /var/lib/vdr/plugins/sc/smartcard.conf
   touch /var/lib/vdr/plugins/sc/SoftCam.Key
   echo "192.168.1.0/24	#any host on the local net" > /var/lib/vdr/allowed_hosts.conf
+  rm /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/allowed_hosts.conf
+  rm -r /etc/vdr
   ln -s /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/svdrphosts.conf
   ln -s /var/lib/vdr/allowed_hosts.conf > /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf  
   ln -s /var/lib/vdr/allowed_hosts.conf > /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf
@@ -150,3 +148,7 @@ if [ "$tv_oscam" = "true" ]
   chmod -R 775 /var/log/oscam/
   chown -R nobody /var/log/oscam
 fi
+
+#install sundtek dvb-c driver
+wget http://sundtek.de/media/sundtek-netinst-driver.deb
+dpkg -i sundtek-netinst-driver.deb
