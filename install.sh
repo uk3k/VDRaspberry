@@ -91,14 +91,17 @@ vdrgroups
   wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/vdr.conf
   wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/setup.conf
   wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/channels.conf
-  wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/runvdr
+  #wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/runvdr
+  wget https://raw.githubusercontent.com/uk3k/VDRaspberry/master/configs/vdr/startvdr.sh
   mv vdr.conf /etc/init/vdr.conf
   mv setup.conf /var/lib/vdr/setup.conf
   mv channels.conf /var/lib/vdr/channels.conf
-  mv runvdr /usr/local/bin/runvdr
+  #mv runvdr /usr/local/bin/runvdr
+  mv startvdr.sh /var/lib/vdr/startvdr.sh
 
   #install init-script
-  chmod +x /usr/local/bin/runvdr
+  #chmod +x /usr/local/bin/runvdr
+  chmod +x /var/lib/vdr/startvdr.sh
   
   #create and link plugin configs
   echo "newcamd:127.0.0.1:33330:1/1838/FFFF:softcam:dummy:0102030405060708091011121314" > /var/lib/vdr/plugins/sc/cardclient.conf
