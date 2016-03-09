@@ -10,8 +10,7 @@
 #note: oscam and vdr are preconfigured for unitymedia (NRW) but due 
 #actual law restrictions you have to get rsa-key and box-key for oscam.server on your own
 
-#replace systemd with upstart
-sudo apt-get install -y upstart systemd-shim systemd-sysv-
+#upgrade all packages
 apt-get update && apt-get upgrade -y
 
 #install packages
