@@ -1,0 +1,28 @@
+# /etc/default/vdr
+#
+
+# Change to 1 to enable vdr's init-script
+ENABLED=1
+
+. /etc/environment
+
+#setterm -clear -cursor off > /dev/tty9; chvt 9;
+#VDRKONSOLE="< /dev/tty9"
+
+OPTIONS="-w 60 -c /var/lib/vdr --log=3"
+# For other options see manpage vdr.1
+
+#VDRSHUTDOWN=/usr/local/bin/vdrpoweroff.sh
+USER=vdr
+SVDRP_PORT=6419
+
+PLUGINS="-P dvbapi -P vnsiserver -P streamdev-client -P svdrpservice 192.168.168.11:6419"
+
+DAEMON="/usr/local/bin/vdr"
+
+# Video-Directory
+VIDEO_DIR="/var/vdr/record"
+
+export LANG=de_DE.utf8
+export LC_COLLATE=de_DE.utf8
+export VDR_CHARSET_OVERRIDE=ISO-8859-9
