@@ -17,7 +17,7 @@ apt-get update && apt-get upgrade -y
 echo "deb-src http://archive.raspbian.org/raspbian/ jessie main contrib non-free rpi" >> /etc/apt/sources.list
 apt-get update
 apt-get install -y python-software-properties software-properties-common git git-core fontconfig htop
-apt-get install -y libjpeg-dev lirc udisks upower xorg alsa-utils mesa-utils librtmp1 libmad0 lm-sensors 
+apt-get install -y libjpeg-dev lirc udisks upower alsa-utils librtmp1 libmad0 lm-sensors 
 apt-get install -y libmpeg2-4 avahi-daemon libnfs4 consolekit pm-utils samba build-essential 
 apt-get install -y libcap-dev gettext libncurses-dev pkg-config w-scan cmake subversion openssl libssl-dev 
 apt-get install -y libusb-dev libusb-1.0 libpcsc-perl libpcsclite-dev
