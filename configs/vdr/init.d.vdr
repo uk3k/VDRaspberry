@@ -68,6 +68,7 @@ startvdr()
             while ! [ -e /dev/dvb/adapter0 ]; do
                 sleep 1s;
             done
+            
             configure_console_input
 
             if [ -n "$LIRC" ]; then
