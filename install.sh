@@ -18,7 +18,7 @@ echo "deb-src http://archive.raspbian.org/raspbian/ jessie main contrib non-free
 apt-get update
 apt-get install -y python-software-properties software-properties-common git git-core fontconfig htop
 apt-get install -y libjpeg-dev lirc udisks upower librtmp1 libmad0 lm-sensors 
-apt-get install -y libmpeg2-4 libnfs4 consolekit pm-utils samba build-essential 
+apt-get install -y libmpeg2-4 libnfs4 pm-utils samba build-essential 
 apt-get install -y libcap-dev gettext libncurses-dev pkg-config w-scan cmake subversion openssl libssl-dev 
 apt-get install -y libusb-dev libusb-1.0 libpcsc-perl libpcsclite-dev
 apt-get build-dep -y vdr
