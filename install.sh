@@ -109,10 +109,10 @@ vdrgroups
   touch /var/lib/vdr/plugins/sc/override.conf
   touch /var/lib/vdr/plugins/sc/smartcard.conf
   touch /var/lib/vdr/plugins/sc/SoftCam.Key
-  echo "192.168.1.0/24	#any host on the local net" > /var/lib/vdr/allowed_hosts.conf
-  rm /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/allowed_hosts.conf
   rm -r /etc/vdr
-  ln -s /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/svdrphosts.conf
+  rm /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/svdrphosts.conf /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf
+  echo "192.168.1.0/24	#any host on the local net" > /var/lib/vdr/allowed_hosts.conf
+  ln -s /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/svdrphosts.conf 
   ln -s /var/lib/vdr/allowed_hosts.conf > /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf  
   ln -s /var/lib/vdr/allowed_hosts.conf > /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf
   ln -s /var/lib/vdr /etc/vdr
