@@ -153,5 +153,6 @@ if [ "$tv_oscam" = "true" ]
 fi
 
 #install sundtek dvb-c driver
-wget http://sundtek.de/media/sundtek-netinst-driver.deb
-dpkg -i sundtek-netinst-driver.deb
+http://www.sundtek.de/media/sundtek_netinst.sh
+chmod +x sundtek_netinst.sh
+./sundtek_netinst.sh
