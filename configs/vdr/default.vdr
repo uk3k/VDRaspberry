@@ -25,4 +25,6 @@ VIDEO_DIR="/var/vdr/record"
 
 export LANG=de_DE.utf8
 export LC_COLLATE=de_DE.utf8
-export VDR_CHARSET_OVERRIDE=ISO-8859-9
+export VDR_CHARSET_OVERRIDE="ISO-8859-15"
+
+ENABLE_SHUTDOWN=0
