@@ -2,4 +2,6 @@ How to extend or activate card:
 1. replace oscam.conf & oscam.user in "/usr/local/etc/" with the "newcamd" ones
 2. modify vdr to start with sc (softcam-plugin) instead of dvbpapi (/etc/default/vdr)
 3. restart oscam + VDR
+4. activate card atunity media customer control center
+5. switch to an encrypted channel and wait for card activation ;-)
 
