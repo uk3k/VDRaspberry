@@ -16,7 +16,11 @@ OPTIONS="-w 60 -c /var/lib/vdr --log=3"
 USER=vdr
 SVDRP_PORT=6419
 
+#dvbapi
 PLUGINS="-P dvbapi -P vnsiserver -P streamdev-client -P svdrpservice 192.168.168.11:6419"
+
+#newcamd
+#PLUGINS="-P sc -P vnsiserver -P streamdev-client -P svdrpservice 192.168.168.11:6419"
 
 DAEMON="/usr/local/bin/vdr"
 
