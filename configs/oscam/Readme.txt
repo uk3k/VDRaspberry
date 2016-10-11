@@ -1,2 +1,5 @@
 How to extend or activate card:
-simply replace oscam.conf & oscam.user with the "newcamd" ones, restart oscam and wait for emms ;-)
+1. replace oscam.conf & oscam.user in "/usr/local/etc/" with the "newcamd" ones
+2. modify vdr to start with sc (softcam-plugin) instead of dvbpapi
+3.
+
