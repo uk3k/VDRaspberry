@@ -5,12 +5,3 @@ pwd       = dummy
 caid      = 1838
 au        = UnityMedia
 group     = 1
-
-[account]
-disabled	= 1
-user 		  = softcam
-pwd 		  = dummy
-caid		  = 1838
-au		    = UnityMedia
-group 		= 1
-
