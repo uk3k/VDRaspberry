@@ -1,0 +1,7 @@
+[account]
+disabled	= 0
+user 		  = softcam
+pwd 		  = dummy
+caid		  = 1838
+au		    = UnityMedia
+group 		= 1
