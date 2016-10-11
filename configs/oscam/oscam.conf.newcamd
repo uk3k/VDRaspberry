@@ -10,6 +10,15 @@ aulow               = 120
 hideclient_to       = 15
 monlevel            = 1
 
+[dvbapi]
+enabled				      = 0
+boxtype				      = pc
+user 				        = dvbapi
+listen_port         = 33330
+au				          = 1
+pmt_mode			      = 4
+request_mode 	      = 1
+
 [newcamd]
 port                = 33330@1838:001103
 key                 = 0102030405060708091011121314
